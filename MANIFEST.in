@@ -1,0 +1,4 @@
+include README_cn.md
+include VALIDATION.md
+recursive-include examples *.py
+recursive-include tests *.py

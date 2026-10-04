@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "survtabdl"
+version = "0.1.0"
+description = "Tabular deep learning for right-censored survival prediction"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE", "licenses/*.txt", "THIRD_PARTY.md"]
+dependencies = ["numpy>=1.24,<3", "pandas>=2,<3", "scikit-learn>=1.3,<2", "torch>=2.4,<3", "einops>=0.8,<1"]
+
+[project.optional-dependencies]
+tabnet = ["pytorch-tabnet==4.1.0"]
+xgboost = ["xgboost>=2.1,<3"]
+tabpfn = ["tabpfn>=2,<3", "tabpfn-extensions>=0.1,<0.2"]
+dev = ["pytest>=8", "build>=1"]
+tuning = ["optuna>=4,<5"]
+
+[project.scripts]
+survtabdl = "survtabdl.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

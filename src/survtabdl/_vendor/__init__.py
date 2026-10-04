@@ -1,0 +1,1 @@
+"""Selected attributed architecture components."""
